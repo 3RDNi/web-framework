@@ -16,7 +16,7 @@ exports.config = {
       browserName: 'chrome',
     },
   ],
-  logLevel: 'info',
+  logLevel: 'silent',
   bail: 0,
   baseUrl: 'https://meowle.qa-fintech.ru/',
   waitforTimeout: 10_000,

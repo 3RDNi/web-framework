@@ -21,6 +21,6 @@ const getCatsNameBySearchPattern = async (pattern: string) => {
 
 const api = {
   getCatsNameBySearchPattern,
-  addCat,
+  addCat
 };
 export default api;

@@ -14,7 +14,7 @@ describe('Перебор списка выборки котов', async () => {
     await MainPage.open();
   });
 
-  it('Проверка получения списка котов поисковой выдачи по части имени (iterator)', async () => {
+  it.only('Проверка получения списка котов поисковой выдачи по части имени (iterator)', async () => {
     const searchInput = await MainPage.searchInput;
     const findCatNameBtn = await MainPage.findCatNameBtn;
 
