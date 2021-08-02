@@ -1,5 +1,6 @@
 import RatingPage from '../../src/pageObjects/RatingPage';
 import allureReporter from "@wdio/allure-reporter";
+import SearchPage from "../../src/pageObjects/SearchPage";
 
 describe('Рейтинг лайков котиков', async () => {
 
@@ -11,27 +12,33 @@ describe('Рейтинг лайков котиков', async () => {
 
         await RatingPage.waitForLoaded();
 
-        const RatingResultsSelector: any = (await RatingPage.RatingResults).selector;
+        /*const RatingResultsSelector: any = (await RatingPage.RatingTable).selector;
         const RatingResultsByScript = await browser.execute(
             // @ts-ignore
             (selector) => [...document.querySelectorAll(selector)].map((el) => el.textContent),
             RatingResultsSelector
-        );
+        );*/
 
-        //Создаем и наполняем словарь для котиков из рейтинга лайков
-        let mapRatingLikes = new Map();
-        for (let i = 0; i < RatingResultsByScript.length/2; i+=3) {
-            mapRatingLikes.set(RatingResultsByScript[i], [RatingResultsByScript[i+1], RatingResultsByScript[i+2]]);
-        }
+        //Получаем массив лайков
+        //const LikeCountersSelector = (await RatingPage.LikeCounters).selector
+        const arrayOfLikes = await browser.execute(() => {
+            // @ts-ignore
+            const xPathResult = document.evaluate('//td[.//*[contains(@data-icon,"thumbs-up")]]', document, null, XPathResult.ANY_TYPE, null);
+            const arrayOfLikes = [];
+            let node = xPathResult.iterateNext();
+            while (node) {
+                arrayOfLikes.push(Number.parseInt(node.textContent));
+                node = xPathResult.iterateNext();
+            }
+            return arrayOfLikes;
+        });
 
         //Проверяем, что котики в рейтинге лайков отсортированы по убыванию лайков
         const expectedResultOfSorting: boolean = true;
-        let actualResultOfSorting: boolean;
-        let max = 0;
-        for (let i = 0; i < mapRatingLikes.size; i++) {
-            const key = (i+1).toString()
-            if ( mapRatingLikes.get(key)[1] >= max ) {
-                actualResultOfSorting = true
+        let actualResultOfSorting: boolean = true;
+        for (let i = 0; i < arrayOfLikes.length - 1; i++) {
+            if ( arrayOfLikes[i] >= arrayOfLikes[i+1]) {
+                continue
             } else {
                 actualResultOfSorting = false
             }

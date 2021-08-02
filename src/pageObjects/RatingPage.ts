@@ -4,8 +4,12 @@ import Page from './page';
  * sub page containing specific selectors and methods for a specific page
  */
 class RatingPage extends Page {
-    get RatingResults() {
-        return browser.$$('div .rating-names_table__Jr5Mf > tbody > tr > td');
+    get RatingTable() {
+        return browser.$$('td[class*=\'rating-names_item\']');
+    }
+
+    get LikeCounters() {
+        return browser.$('//td[.//*[contains(@data-icon,"thumbs-up")]]');
     }
 
     open() {
@@ -15,7 +19,7 @@ class RatingPage extends Page {
     waitForLoaded() {
         super.waitForLoaded();
         return browser.waitUntil(async () => {
-            return (await this.RatingResults).length > 0;
+            return (await this.RatingTable).length > 0;
         });
     }
 }

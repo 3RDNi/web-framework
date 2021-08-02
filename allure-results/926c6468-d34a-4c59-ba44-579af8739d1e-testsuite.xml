@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
-<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1627681349051' stop='1627681350532'>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1627900550140' stop='1627900551399'>
     <name>Рейтинг лайков котиков</name>
     <title>Рейтинг лайков котиков</title>
     <test-cases>
-        <test-case start='1627681349051' status='passed' stop='1627681350531'>
+        <test-case start='1627900550141' status='passed' stop='1627900551398'>
             <name>Проверка сортировки по убыванию лайков котиков в рейтинге лайков</name>
             <title>Проверка сортировки по убыванию лайков котиков в рейтинге лайков</title>
             <labels>
@@ -19,24 +19,24 @@
                 <parameter kind='argument' name='browser' value='chrome-92.0.4515.107'/>
             </parameters>
             <steps>
-                <step start='1627681349058' status='passed' stop='1627681349058'>
+                <step start='1627900550145' status='passed' stop='1627900550146'>
                     <name>Выполнен переход на страницу [Страница рейтинга]</name>
                     <title>Выполнен переход на страницу [Страница рейтинга]</title>
                     <attachments/>
                     <steps/>
                 </step>
-                <step start='1627681350226' status='passed' stop='1627681350226'>
+                <step start='1627900551213' status='passed' stop='1627900551213'>
                     <name>Выполнено ожидание загрузки страницы  [Страница рейтинга]</name>
                     <title>Выполнено ожидание загрузки страницы  [Страница рейтинга]</title>
                     <attachments/>
                     <steps/>
                 </step>
-                <step start='1627681350523' status='passed' stop='1627681350530'>
+                <step start='1627900551389' status='passed' stop='1627900551397'>
                     <name>Проверка сортировки котиков в рейтинге лайков</name>
                     <title>Проверка сортировки котиков в рейтинге лайков</title>
                     <attachments>
-                        <attachment title='Ожидаемое значение' source='22056d8c-d4fe-4eef-802d-e3d4fd326ae7-attachment.txt' type='text/plain' size='4'/>
-                        <attachment title='Фактическое значение' source='4fba2887-1f6c-46c0-bd73-59782cce9878-attachment.txt' type='text/plain' size='4'/>
+                        <attachment title='Ожидаемое значение' source='e2ee8a86-9b18-419f-938a-bf26bd8911c8-attachment.txt' type='text/plain' size='4'/>
+                        <attachment title='Фактическое значение' source='2684a283-8774-4a5a-8ca4-fa384be65ed0-attachment.txt' type='text/plain' size='4'/>
                     </attachments>
                     <steps/>
                 </step>
